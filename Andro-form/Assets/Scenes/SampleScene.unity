@@ -144,6 +144,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -159,6 +160,32 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!61 &519420030
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 16, y: 9}
+  m_EdgeRadius: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -661,12 +688,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1476184233}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1783199058 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3398869523239804321, guid: 78eca6aaa978c7c48b48aa913ea98870,
-    type: 3}
-  m_PrefabInstance: {fileID: 8270644902603541960}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1926363698 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4870779830406586839, guid: b2744fb742a315e42a2ac63d8cad8780,
@@ -957,41 +978,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 883057154, guid: 78eca6aaa978c7c48b48aa913ea98870, type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 883057154, guid: 78eca6aaa978c7c48b48aa913ea98870, type: 3}
       propertyPath: m_GravityScale
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 883057154, guid: 78eca6aaa978c7c48b48aa913ea98870, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 1d42e4efa5862a745b155fe15bc5ea50, type: 2}
     - target: {fileID: 883057157, guid: 78eca6aaa978c7c48b48aa913ea98870, type: 3}
-      propertyPath: jumpForce
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 883057157, guid: 78eca6aaa978c7c48b48aa913ea98870, type: 3}
-      propertyPath: groundCheck
-      value: 
-      objectReference: {fileID: 1783199058}
-    - target: {fileID: 883057157, guid: 78eca6aaa978c7c48b48aa913ea98870, type: 3}
-      propertyPath: checkRadius
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 883057157, guid: 78eca6aaa978c7c48b48aa913ea98870, type: 3}
-      propertyPath: whatIsGround.m_Bits
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 883057157, guid: 78eca6aaa978c7c48b48aa913ea98870, type: 3}
-      propertyPath: extraJumpsValue
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4931860727548937040, guid: 78eca6aaa978c7c48b48aa913ea98870,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.49
+      propertyPath: speed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8270644902949694519, guid: 78eca6aaa978c7c48b48aa913ea98870,
         type: 3}
