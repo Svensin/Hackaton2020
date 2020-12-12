@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] BatteryLevel batteryLevelManager;
+
+    public float movementDecrease;
+    public float jumpDecrease;
 
     public float speed;
     public float jumpForce;
@@ -29,40 +33,54 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
-
-        moveInput = Input.GetAxis("Horizontal");
-        playerRigidbody.velocity = new Vector2(moveInput * speed, playerRigidbody.velocity.y);
-
-        if(!facingRight && moveInput > 0)
+        if (batteryLevelManager.checkBatteryLevel() > 0)
         {
-            Flip();
+
+            Debug.Log(batteryLevelManager.checkBatteryLevel());
+            isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+
+            moveInput = Input.GetAxis("Horizontal");
+
+            if (moveInput != 0)
+            {
+                batteryLevelManager.decreaseBatteryLevel(movementDecrease * Time.deltaTime);
+            }
+
+            playerRigidbody.velocity = new Vector2(moveInput * speed, playerRigidbody.velocity.y);
+
+            if (!facingRight && moveInput > 0)
+            {
+                Flip();
+            }
+            else if (facingRight && moveInput < 0)
+            {
+                Flip();
+            }
         }
-        else if (facingRight && moveInput < 0)
-        {
-            Flip();
-        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(isGrounded)
+        if (batteryLevelManager.checkBatteryLevel() > 0)
         {
-            extraJumps = extraJumpsValue;
+            if (isGrounded)
+            {
+                extraJumps = extraJumpsValue;
+            }
+            if (Input.GetKeyDown(KeyCode.Space) && extraJumps > 0)
+            {
+                playerRigidbody.velocity = Vector2.up * jumpForce;
+                extraJumps--;
+                batteryLevelManager.decreaseBatteryLevel(jumpDecrease);
+            }
+            else if (Input.GetKeyDown(KeyCode.Space) && extraJumps == 0 && isGrounded == true)
+            {
+                playerRigidbody.velocity = Vector2.up * jumpForce;
+                batteryLevelManager.decreaseBatteryLevel(jumpDecrease);
+            }
         }
-        if(Input.GetKeyDown(KeyCode.Space) && extraJumps > 0)
-        {
-            playerRigidbody.velocity = Vector2.up * jumpForce;
-            extraJumps--;
-        }
-        else if(Input.GetKeyDown(KeyCode.Space) && extraJumps == 0 && isGrounded == true)
-        {
-            playerRigidbody.velocity = Vector2.up * jumpForce;
-        }
-
-
-        
     }
 
     void Flip()
