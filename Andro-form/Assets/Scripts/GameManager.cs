@@ -10,6 +10,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] int numberOfBatteries = 0;
     [SerializeField] GameObject batteryButton;
 
+    [SerializeField] GameObject playerControllerUI;
+    [SerializeField] GameObject KPKControllerUI;
+
+
+    [SerializeField] GameObject currentLevelElement;
+    [SerializeField] List<GameObject> LevelElementList;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +53,19 @@ public class GameManager : MonoBehaviour
         numberOfBatteries++;
     }
 
+    public void ActivateKPKControl()
+    {
+        EnableKPKUI();
+        DisablePlayerUI();
+        DisableMovement();
+
+        currentLevelElement = LevelElementList[0];
+        currentLevelElement.GetComponent<LevelElementController>().EnableBlockMovement();
+
+        currentLevelElement.GetComponent<LevelElementController>().EnableYellowLine();
+    }
+
+
     public void EnableMovement()
     {
         playerController.isPlayerMoving = true;
@@ -65,5 +84,25 @@ public class GameManager : MonoBehaviour
     public void DisableCharging()
     {
         batteryButton.SetActive(false);
+    }
+
+    public void EnablePlayerUI()
+    {
+        playerControllerUI.SetActive(true);
+    }
+
+    public void DisablePlayerUI()
+    {
+        playerControllerUI.SetActive(false);
+    }
+
+    public void EnableKPKUI()
+    {
+        KPKControllerUI.SetActive(true);
+    }
+
+    public void DisableKPKUI()
+    {
+        KPKControllerUI.SetActive(false);
     }
 }
