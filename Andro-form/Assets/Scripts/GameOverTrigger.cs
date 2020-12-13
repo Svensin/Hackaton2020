@@ -24,6 +24,7 @@ public class GameOverTrigger : MonoBehaviour
     {
         if(collision.gameObject.layer == 9)
         {
+            Time.timeScale = 0f;
             gameOverMenu.SetActive(true);
         }
     }

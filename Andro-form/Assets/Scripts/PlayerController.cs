@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] BatteryLevel batteryLevelManager;
 
+    public bool isPlayerMoving = true;
+
     public float movementDecrease;
     public float jumpDecrease;
 
@@ -33,10 +35,11 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (batteryLevelManager.checkBatteryLevel() > 0)
+
+
+        if (isPlayerMoving)
         {
 
-            Debug.Log(batteryLevelManager.checkBatteryLevel());
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
 
             moveInput = Input.GetAxis("Horizontal");
@@ -57,13 +60,22 @@ public class PlayerController : MonoBehaviour
                 Flip();
             }
         }
+        else
+        {
+            playerRigidbody.velocity = new Vector2(0, playerRigidbody.velocity.y);
+        }
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (batteryLevelManager.checkBatteryLevel() > 0)
+        if (batteryLevelManager.checkBatteryLevel() < 0)
+        {
+            isPlayerMoving = false;
+        }
+
+        if (isPlayerMoving)
         {
             if (isGrounded)
             {
@@ -81,6 +93,7 @@ public class PlayerController : MonoBehaviour
                 batteryLevelManager.decreaseBatteryLevel(jumpDecrease);
             }
         }
+        
     }
 
     void Flip()
@@ -90,4 +103,6 @@ public class PlayerController : MonoBehaviour
         newPlayerScale.x *= -1;
         transform.localScale = newPlayerScale;
     }
+
+    
 }
