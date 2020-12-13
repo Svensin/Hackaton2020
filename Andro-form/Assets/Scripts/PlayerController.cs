@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerController : MonoBehaviour
 {
@@ -36,13 +37,14 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
 
+        
 
         if (isPlayerMoving)
         {
 
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
 
-            moveInput = Input.GetAxis("Horizontal");
+            moveInput = CrossPlatformInputManager.GetAxis("Horizontal");
 
             if (moveInput != 0)
             {
@@ -70,7 +72,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (batteryLevelManager.checkBatteryLevel() < 0)
+        if (batteryLevelManager.checkBatteryLevel() <= 0)
         {
             isPlayerMoving = false;
         }
@@ -81,7 +83,7 @@ public class PlayerController : MonoBehaviour
             {
                 extraJumps = extraJumpsValue;
             }
-            if (Input.GetKeyDown(KeyCode.Space) && extraJumps > 0)
+            if (CrossPlatformInputManager.GetButtonDown("Jump") && extraJumps > 0)
             {
                 playerRigidbody.velocity = Vector2.up * jumpForce;
                 extraJumps--;
