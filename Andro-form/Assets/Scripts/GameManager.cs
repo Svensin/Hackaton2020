@@ -53,6 +53,28 @@ public class GameManager : MonoBehaviour
         numberOfBatteries++;
     }
 
+    public void SelectLevelElement(int id)
+    {
+        
+
+        foreach (GameObject levelElement in LevelElementList)
+        {
+            levelElement.GetComponent<LevelElementController>().DisableBlockMovement();
+
+            levelElement.GetComponent<LevelElementController>().DisableYellowLine();
+        }
+
+        
+
+        print(currentLevelElement.name);
+
+        currentLevelElement = LevelElementList[id];
+
+        currentLevelElement.GetComponent<LevelElementController>().EnableBlockMovement();
+
+        currentLevelElement.GetComponent<LevelElementController>().EnableYellowLine();
+    }
+
     public void ActivateKPKControl()
     {
         EnableKPKUI();
@@ -60,9 +82,25 @@ public class GameManager : MonoBehaviour
         DisableMovement();
 
         currentLevelElement = LevelElementList[0];
-        currentLevelElement.GetComponent<LevelElementController>().EnableBlockMovement();
 
-        currentLevelElement.GetComponent<LevelElementController>().EnableYellowLine();
+        LevelElementController currentLevelElementController = currentLevelElement.GetComponent<LevelElementController>();
+
+        currentLevelElementController.EnableBlockMovement();
+
+        currentLevelElementController.EnableYellowLine();
+    }
+
+    public void DeactivateKPKControl()
+    {
+        DisableKPKUI();
+        EnablePlayerUI();
+        EnableMovement();
+
+        LevelElementController currentLevelElementController = currentLevelElement.GetComponent<LevelElementController>();
+
+        currentLevelElementController.DisableBlockMovement();
+
+        currentLevelElementController.DisableYellowLine();
     }
 
 

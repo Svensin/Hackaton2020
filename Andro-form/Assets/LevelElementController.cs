@@ -29,7 +29,7 @@ public class LevelElementController : MonoBehaviour
     {
         if (isLevelMoving)
         {
-            verticalInput = CrossPlatformInputManager.GetAxis("Vertical");
+            verticalInput = CrossPlatformInputManager.GetAxis("Vertical for Block");
 
             if (verticalInput != 0)
             {
@@ -38,16 +38,21 @@ public class LevelElementController : MonoBehaviour
 
             blockRigidBody2D.velocity = new Vector2(blockRigidBody2D.velocity.x, verticalInput * speed);
 
-            horizontalInput = CrossPlatformInputManager.GetAxis("Horizontal");// не працю з боку в бік
+            horizontalInput = CrossPlatformInputManager.GetAxis("Horizontal for Block");// не працює з боку в бік
 
             if (horizontalInput != 0)
             {
                 batteryLevelManager.decreaseBatteryLevel(movementDecrease * Time.deltaTime);
             }
-            print(horizontalInput);
             blockRigidBody2D.velocity = new Vector2(horizontalInput * speed, blockRigidBody2D.velocity.y);
         }
+
         
+    }
+
+    private void LateUpdate()
+    {
+        horizontalInput = CrossPlatformInputManager.GetAxis("Horizontal for Block");
     }
 
     public void EnableBlockMovement()

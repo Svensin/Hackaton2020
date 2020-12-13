@@ -9,12 +9,14 @@ public class KPK : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        InteractionButton.SetActive(true);
+        if (collision.CompareTag("Player"))
+            InteractionButton.SetActive(true);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        InteractionButton.SetActive(false);
+        if (collision.CompareTag("Player"))
+            InteractionButton.SetActive(false);
     }
     // Start is called before the first frame update
     void Start()
