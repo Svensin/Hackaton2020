@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
+
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] BatteryLevel batteryLevelManager;
+    [SerializeField] Animator androidAnimator;
 
     public bool isPlayerMoving = true;
 
@@ -32,6 +34,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         playerRigidbody = GetComponent<Rigidbody2D>();
+        androidAnimator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -41,6 +44,7 @@ public class PlayerController : MonoBehaviour
 
         if (isPlayerMoving)
         {
+            
 
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
 
@@ -48,7 +52,12 @@ public class PlayerController : MonoBehaviour
 
             if (moveInput != 0)
             {
+                androidAnimator.SetBool("IsRunning", true);
                 batteryLevelManager.decreaseBatteryLevel(movementDecrease * Time.deltaTime);
+            }
+            else
+            {
+                androidAnimator.SetBool("IsRunning", false);
             }
 
             playerRigidbody.velocity = new Vector2(moveInput * speed, playerRigidbody.velocity.y);
@@ -64,6 +73,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            
             playerRigidbody.velocity = new Vector2(0, playerRigidbody.velocity.y);
         }
         

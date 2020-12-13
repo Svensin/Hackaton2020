@@ -92,8 +92,8 @@ GameObject:
   - component: {fileID: 1020289821595307518}
   - component: {fileID: 1020289821595307513}
   - component: {fileID: 9079336347678361730}
-  - component: {fileID: 1489554259}
   - component: {fileID: 1489554260}
+  - component: {fileID: 1952281813}
   m_Layer: 8
   m_Name: Shelf Short
   m_TagString: Untagged
@@ -155,7 +155,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7b0b01537e3847645b2bbdfd7d7cc799, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 48da20aef1940834c8e37c9597a4ff00, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -183,7 +183,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 0.5}
+    oldSize: {x: 2, y: 0.475}
     newSize: {x: 2, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -192,7 +192,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 0.5}
   m_EdgeRadius: 0
---- !u!50 &1489554259
+--- !u!114 &1489554260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1020289821595307519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c888b91bb82c1c47a4bcea38047749d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLevelMoving: 0
+  speed: 3
+  yellowLine: {fileID: 125634829570584833}
+  batteryLevelManager: {fileID: 0}
+  movementDecrease: 1
+--- !u!50 &1952281813
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -213,19 +230,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1489554260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1020289821595307519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c888b91bb82c1c47a4bcea38047749d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  yellowLine: {fileID: 125634829570584833}
-  batteryLevelManager: {fileID: 0}
-  movementDecrease: 1

@@ -156,7 +156,7 @@ PrefabInstance:
     - target: {fileID: 3538287729110365598, guid: 73a416740fd56ef4c82c7b677015ac55,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.25
+      value: 1.13
       objectReference: {fileID: 0}
     - target: {fileID: 3538287729110365598, guid: 73a416740fd56ef4c82c7b677015ac55,
         type: 3}
@@ -2698,6 +2698,8 @@ MonoBehaviour:
   LevelElementList:
   - {fileID: 1489554256}
   - {fileID: 1952281810}
+  cinemachineVirtual: {fileID: 1656551404}
+  newOrthoSize: 7
 --- !u!1 &1444932247
 GameObject:
   m_ObjectHideFlags: 0
@@ -4318,56 +4320,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 198783330, guid: 78eca6aaa978c7c48b48aa913ea98870, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 198783331, guid: 78eca6aaa978c7c48b48aa913ea98870, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 883057154, guid: 78eca6aaa978c7c48b48aa913ea98870, type: 3}
-      propertyPath: m_GravityScale
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 883057157, guid: 78eca6aaa978c7c48b48aa913ea98870, type: 3}
-      propertyPath: speed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 883057157, guid: 78eca6aaa978c7c48b48aa913ea98870, type: 3}
-      propertyPath: checkRadius
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 883057157, guid: 78eca6aaa978c7c48b48aa913ea98870, type: 3}
-      propertyPath: movementDecrease
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 883057157, guid: 78eca6aaa978c7c48b48aa913ea98870, type: 3}
       propertyPath: batteryLevelManager
       value: 
       objectReference: {fileID: 2002647655}
-    - target: {fileID: 883057157, guid: 78eca6aaa978c7c48b48aa913ea98870, type: 3}
-      propertyPath: jumpDecrease
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 883057157, guid: 78eca6aaa978c7c48b48aa913ea98870, type: 3}
-      propertyPath: jumpForce
-      value: 7.5
-      objectReference: {fileID: 0}
     - target: {fileID: 8270644902949694519, guid: 78eca6aaa978c7c48b48aa913ea98870,
         type: 3}
       propertyPath: m_Name
       value: Android
-      objectReference: {fileID: 0}
-    - target: {fileID: 8270644902949694519, guid: 78eca6aaa978c7c48b48aa913ea98870,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 8270644902949694519, guid: 78eca6aaa978c7c48b48aa913ea98870,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8270644902949695433, guid: 78eca6aaa978c7c48b48aa913ea98870,
         type: 3}
@@ -4422,21 +4382,6 @@ PrefabInstance:
     - target: {fileID: 8270644902949695433, guid: 78eca6aaa978c7c48b48aa913ea98870,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8804022143039859525, guid: 78eca6aaa978c7c48b48aa913ea98870,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 9126404751674012356, guid: 78eca6aaa978c7c48b48aa913ea98870,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.97
-      objectReference: {fileID: 0}
-    - target: {fileID: 9126404751674012356, guid: 78eca6aaa978c7c48b48aa913ea98870,
-        type: 3}
-      propertyPath: m_Offset.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
